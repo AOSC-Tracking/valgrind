@@ -62,7 +62,7 @@ RANLIB = ${LTO_RANLIB}
 valgrind_CPPFLAGS  = $(AM_CPPFLAGS_PRI)
 valgrind_CFLAGS    = $(AM_CFLAGS_PRI) $(LTO_CFLAGS)
 valgrind_CCASFLAGS = $(AM_CCASFLAGS_PRI)
-valgrind_LDFLAGS   = $(AM_CFLAGS_PRI) @LIB_UBSAN@
+valgrind_LDFLAGS   = $(AM_CFLAGS_PRI) @LIB_UBSAN@ -Wl,-z,now
 # If there is no secondary platform, and the platforms include x86-darwin,
 # then the primary platform must be x86-darwin.  Hence:
 if ! VGCONF_HAVE_PLATFORM_SEC
@@ -104,7 +104,7 @@ endif
 vgdb_CPPFLAGS  = $(AM_CPPFLAGS_PRI) $(GDB_SCRIPTS_DIR)
 vgdb_CFLAGS    = $(AM_CFLAGS_PRI) $(LTO_CFLAGS)
 vgdb_CCASFLAGS = $(AM_CCASFLAGS_PRI)
-vgdb_LDFLAGS   = $(AM_CFLAGS_PRI) @LIB_UBSAN@
+vgdb_LDFLAGS   = $(AM_CFLAGS_PRI) @LIB_UBSAN@ -Wl,-z,now
 if VGCONF_PLATVARIANT_IS_ANDROID
 vgdb_CFLAGS    += -static
 endif

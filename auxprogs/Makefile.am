@@ -32,7 +32,7 @@ valgrind_listener_SOURCES = valgrind-listener.c
 valgrind_listener_CPPFLAGS  = $(AM_CPPFLAGS_PRI) -I$(top_srcdir)/coregrind
 valgrind_listener_CFLAGS    = $(AM_CFLAGS_PRI)
 valgrind_listener_CCASFLAGS = $(AM_CCASFLAGS_PRI)
-valgrind_listener_LDFLAGS   = $(AM_CFLAGS_PRI)
+valgrind_listener_LDFLAGS   = $(AM_CFLAGS_PRI) -Wl,-z,now
 if VGCONF_PLATVARIANT_IS_ANDROID
 valgrind_listener_CFLAGS    += -static
 endif
@@ -51,7 +51,7 @@ valgrind_di_server_SOURCES   = valgrind-di-server.c
 valgrind_di_server_CPPFLAGS  = $(AM_CPPFLAGS_PRI) -I$(top_srcdir)/coregrind
 valgrind_di_server_CFLAGS    = $(AM_CFLAGS_PRI)
 valgrind_di_server_CCASFLAGS = $(AM_CCASFLAGS_PRI)
-valgrind_di_server_LDFLAGS   = $(AM_CFLAGS_PRI)
+valgrind_di_server_LDFLAGS   = $(AM_CFLAGS_PRI) -Wl,-z,now
 if VGCONF_PLATVARIANT_IS_ANDROID
 valgrind_di_server_CFLAGS    += -static
 endif
@@ -86,7 +86,7 @@ getoff_@VGCONF_ARCH_PRI@_@VGCONF_OS@_SOURCES   = getoff.c
 getoff_@VGCONF_ARCH_PRI@_@VGCONF_OS@_CPPFLAGS  = $(AM_CPPFLAGS_@VGCONF_PLATFORM_PRI_CAPS@)
 getoff_@VGCONF_ARCH_PRI@_@VGCONF_OS@_CFLAGS    = $(AM_CFLAGS_@VGCONF_PLATFORM_PRI_CAPS@)
 getoff_@VGCONF_ARCH_PRI@_@VGCONF_OS@_CCASFLAGS = $(AM_CCASFLAGS_PRI)
-getoff_@VGCONF_ARCH_PRI@_@VGCONF_OS@_LDFLAGS   = $(AM_CFLAGS_PRI) @LIB_UBSAN@
+getoff_@VGCONF_ARCH_PRI@_@VGCONF_OS@_LDFLAGS   = $(AM_CFLAGS_PRI) @LIB_UBSAN@ -Wl,-z,now
 if HAVE_DLINFO_RTLD_DI_TLS_MODID
 getoff_@VGCONF_ARCH_PRI@_@VGCONF_OS@_LDADD = $(LDADD) -ldl
 endif
