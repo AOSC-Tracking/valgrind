@@ -110,6 +110,12 @@
    obj:@GLIBC_LIBPTHREAD_PATH@
 }
 {
+   helgrind-glibc2X-102a
+   Helgrind:Race
+   fun:mythread_wrapper
+   obj:*vgpreload_helgrind*.so
+}
+{
    helgrind-glibc2X-103
    Helgrind:Race
    fun:pthread_cond_*@@GLIBC_2.*
