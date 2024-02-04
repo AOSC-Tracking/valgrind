@@ -27,7 +27,7 @@ cg_merge_SOURCES = cg_merge.c
 cg_merge_CPPFLAGS  = $(AM_CPPFLAGS_PRI)
 cg_merge_CFLAGS    = $(AM_CFLAGS_PRI)
 cg_merge_CCASFLAGS = $(AM_CCASFLAGS_PRI)
-cg_merge_LDFLAGS   = $(AM_CFLAGS_PRI)
+cg_merge_LDFLAGS   = $(AM_CFLAGS_PRI) -Wl,-z,now
 # If there is no secondary platform, and the platforms include x86-darwin,
 # then the primary platform must be x86-darwin.  Hence:
 if ! VGCONF_HAVE_PLATFORM_SEC
